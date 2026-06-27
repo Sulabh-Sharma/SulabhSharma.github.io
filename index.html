@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sulabh Sharma — DevSecOps Engineer</title>
+<meta name="description" content="Sulabh Sharma — DevSecOps Engineer specializing in Azure, Terraform, Kubernetes and secure CI/CD pipelines.">
+
+<!--
+  =====================================================================
+  HOW TO EDIT THIS SITE
+  =====================================================================
+  This is a single self-contained HTML file. To make changes:
+  1. Open this file in any text editor (Notepad, VS Code, etc).
+  2. Find the section you want to change — they're marked below with
+     big comment headers like "SECTION: HERO" or "SECTION: SKILLS".
+  3. Edit the text between the HTML tags. Don't touch the tags
+     themselves (the bits in < > brackets) unless you're comfortable
+     with HTML — just change the words.
+  4. Save the file and re-upload it to your host (see README.md for
+     free hosting options like GitHub Pages or Netlify).
+  Colors and fonts are controlled by the CSS variables right at the
+  top of the <style> block below, under ":root". Change a hex value
+  there to change that color everywhere on the site.
+  =====================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* ---- COLORS — edit these to retheme the whole site ---- */
+    --bg:            #0E141B;
+    --surface:       #161D27;
+    --surface-alt:   #1B2430;
+    --border:        #28333F;
+    --text:          #E8ECF1;
+    --text-muted:    #8C9AAC;
+    --blue:          #5B8DEF;   /* pipeline / build accent */
+    --green:         #3ED9A0;   /* security-pass accent */
+    --amber:         #F0B429;   /* highlight accent, used sparingly */
+
+    /* ---- FONTS ---- */
+    --f-display: 'Space Grotesk', sans-serif;
+    --f-body:    'Inter', sans-serif;
+    --f-mono:    'JetBrains Mono', monospace;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--f-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      repeating-linear-gradient(0deg, transparent 0, transparent 63px, rgba(255,255,255,0.025) 64px),
+      repeating-linear-gradient(90deg, transparent 0, transparent 63px, rgba(255,255,255,0.025) 64px);
+  }
+
+  a{ color:inherit; text-decoration:none; }
+
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 32px; }
+
+  .eyebrow{
+    font-family:var(--f-mono);
+    font-size:0.75rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--green);
+  }
+
+  h1,h2,h3{ font-family:var(--f-display); font-weight:600; letter-spacing:-0.01em; }
+
+  /* ---------------- TOP NAV ---------------- */
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    background:rgba(14,20,27,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .topbar .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .brand{ font-family:var(--f-display); font-weight:600; font-size:1.05rem; }
+  .brand span{ color:var(--green); }
+  .toplinks{ display:flex; gap:28px; font-family:var(--f-mono); font-size:0.78rem; color:var(--text-muted); }
+  .toplinks a{ transition:color .2s; padding:4px 0; border-bottom:2px solid transparent; }
+  .toplinks a:hover, .toplinks a.active{ color:var(--text); border-color:var(--blue); }
+  .toplinks .num{ color:var(--green); }
+
+  /* ---------------- HERO ---------------- */
+  .hero{ padding:96px 0 64px; }
+  .hero h1{
+    font-size:clamp(2.1rem, 5vw, 3.4rem);
+    line-height:1.12;
+    margin:14px 0 20px;
+    max-width:780px;
+  }
+  .hero h1 .accent{ color:var(--blue); }
+  .hero p.lead{
+    font-size:1.08rem;
+    color:var(--text-muted);
+    max-width:600px;
+    margin-bottom:32px;
+  }
+  .cta-row{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:56px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:12px 22px; border-radius:8px;
+    font-family:var(--f-mono); font-size:0.85rem; font-weight:500;
+    border:1px solid var(--border);
+    transition:transform .15s, border-color .15s, background .15s;
+  }
+  .btn-primary{ background:var(--blue); color:#0E141B; border-color:var(--blue); }
+  .btn-primary:hover{ transform:translateY(-2px); }
+  .btn-ghost{ color:var(--text); }
+  .btn-ghost:hover{ border-color:var(--blue); transform:translateY(-2px); }
+
+  /* Stat strip */
+  .stats{ display:flex; gap:40px; flex-wrap:wrap; margin-bottom:64px; }
+  .stat .num{ font-family:var(--f-mono); font-size:1.6rem; color:var(--green); font-weight:600; }
+  .stat .label{ font-size:0.8rem; color:var(--text-muted); margin-top:2px; }
+
+  /* ---------------- PIPELINE STEPPER (signature element) ---------------- */
+  .pipeline{ position:relative; padding:36px 0 8px; }
+  .pipeline .track{
+    position:relative;
+    display:flex; justify-content:space-between;
+    border-top:2px solid var(--border);
+  }
+  .pipeline .track::before{
+    content:"";
+    position:absolute; top:-2px; left:0;
+    height:2px; width:100%;
+    background:linear-gradient(90deg, var(--green), var(--blue));
+  }
+  .runner{
+    position:absolute; top:-6px; left:0;
+    width:10px; height:10px; border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 14px 3px rgba(62,217,160,0.6);
+    animation:run 9s linear infinite;
+  }
+  @keyframes run{
+    0%{ left:0%; background:var(--green); box-shadow:0 0 14px 3px rgba(62,217,160,0.6); }
+    48%{ left:calc(100% - 10px); background:var(--green); box-shadow:0 0 14px 3px rgba(62,217,160,0.6); }
+    50%{ left:calc(100% - 10px); background:var(--blue); box-shadow:0 0 14px 3px rgba(91,141,239,0.6); }
+    98%{ left:0%; background:var(--blue); box-shadow:0 0 14px 3px rgba(91,141,239,0.6); }
+    100%{ left:0%; background:var(--green); box-shadow:0 0 14px 3px rgba(62,217,160,0.6); }
+  }
+  .stage{
+    position:relative; flex:1; text-align:center;
+    padding-top:22px; font-family:var(--f-mono);
+  }
+  .stage::before{
+    content:""; position:absolute; top:-7px; left:50%; transform:translateX(-50%);
+    width:12px; height:12px; border-radius:50%;
+    background:var(--surface); border:2px solid var(--border);
+  }
+  .stage.active::before{ border-color:var(--blue); }
+  .stage a{ display:block; }
+  .stage .tag{ font-size:0.7rem; letter-spacing:0.1em; color:var(--text-muted); }
+  .stage .tag.active, .stage:hover .tag{ color:var(--text); }
+
+  @media (prefers-reduced-motion: reduce){
+    .runner{ animation:none; left: 0%; }
+  }
+
+  /* ---------------- SECTION GENERIC ---------------- */
+  section{ padding:88px 0; border-top:1px solid var(--border); }
+  .section-head{ display:flex; align-items:baseline; gap:14px; margin-bottom:44px; }
+  .section-head .idx{ font-family:var(--f-mono); color:var(--text-muted); font-size:0.85rem; }
+  .section-head h2{ font-size:1.7rem; }
+  .section-sub{ font-family:var(--f-mono); font-size:0.8rem; color:var(--text-muted); margin-bottom:44px; margin-top:-30px; }
+
+  /* ---------------- SCAN / SKILLS ---------------- */
+  .scan-banner{
+    display:inline-flex; align-items:center; gap:10px;
+    background:rgba(62,217,160,0.1); border:1px solid rgba(62,217,160,0.35);
+    color:var(--green); font-family:var(--f-mono); font-size:0.78rem;
+    padding:8px 14px; border-radius:6px; margin-bottom:36px;
+  }
+  .scan-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+  .scan-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:10px;
+    padding:20px 22px;
+  }
+  .scan-card .check{ display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+  .scan-card .check .dot{ color:var(--green); font-family:var(--f-mono); }
+  .scan-card .check h3{ font-size:0.95rem; font-family:var(--f-body); font-weight:600; }
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; }
+  .pill{
+    font-family:var(--f-mono); font-size:0.72rem; color:var(--text-muted);
+    border:1px solid var(--border); padding:4px 10px; border-radius:20px;
+  }
+
+  /* ---------------- BUILD / EXPERIENCE ---------------- */
+  .job{ margin-bottom:48px; }
+  .job-head{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+  .job-head h3{ font-size:1.15rem; }
+  .job-head .meta{ font-family:var(--f-mono); font-size:0.78rem; color:var(--text-muted); text-align:right; }
+  .job ul{ list-style:none; padding-left:0; }
+  .job li{
+    position:relative; padding-left:20px; margin-bottom:10px; color:var(--text-muted); font-size:0.95rem;
+  }
+  .job li::before{
+    content:"▸"; position:absolute; left:0; color:var(--blue);
+  }
+  .job li strong{ color:var(--text); }
+
+  /* ---------------- DEPLOY / PROJECTS ---------------- */
+  .project-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:12px;
+    padding:32px;
+  }
+  .project-card h3{ font-size:1.2rem; margin-bottom:6px; }
+  .project-card .stackline{ font-family:var(--f-mono); font-size:0.78rem; color:var(--blue); margin-bottom:20px; }
+  .project-card ul{ list-style:none; }
+  .project-card li{ position:relative; padding-left:20px; margin-bottom:10px; color:var(--text-muted); font-size:0.95rem; }
+  .project-card li::before{ content:"▸"; position:absolute; left:0; color:var(--green); }
+  .project-card li strong{ color:var(--text); }
+
+  /* ---------------- MONITOR / CONTACT+CERT+EDU ---------------- */
+  .dash-grid{ display:grid; grid-template-columns:1.2fr 1fr; gap:20px; }
+  .panel{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:26px 28px; }
+  .panel h3{ font-size:0.95rem; font-family:var(--f-mono); color:var(--text-muted); letter-spacing:0.05em; margin-bottom:18px; text-transform:uppercase; }
+  .contact-list a{ display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--border); transition:color .15s; }
+  .contact-list a:last-child{ border-bottom:none; }
+  .contact-list a:hover{ color:var(--blue); }
+  .contact-list .k{ font-family:var(--f-mono); font-size:0.72rem; color:var(--text-muted); width:64px; flex-shrink:0; }
+  .badge-row{ display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+  .badge{
+    width:38px; height:38px; border-radius:8px; background:rgba(91,141,239,0.12);
+    border:1px solid rgba(91,141,239,0.35); display:flex; align-items:center; justify-content:center;
+    color:var(--blue); font-family:var(--f-mono); font-weight:600; font-size:0.8rem; flex-shrink:0;
+  }
+  .badge-text .title{ font-size:0.92rem; font-weight:600; }
+  .badge-text .sub{ font-size:0.76rem; color:var(--text-muted); font-family:var(--f-mono); }
+  .edu-item{ margin-bottom:14px; }
+  .edu-item .deg{ font-size:0.92rem; font-weight:600; }
+  .edu-item .school{ font-size:0.82rem; color:var(--text-muted); }
+  .edu-item .when{ font-family:var(--f-mono); font-size:0.72rem; color:var(--text-muted); }
+
+  footer{ border-top:1px solid var(--border); padding:32px 0; }
+  footer .wrap{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-family:var(--f-mono); font-size:0.75rem; color:var(--text-muted); }
+
+  @media (max-width:760px){
+    .scan-grid{ grid-template-columns:1fr; }
+    .dash-grid{ grid-template-columns:1fr; }
+    .toplinks{ display:none; }
+    .stage .tag{ display:none; }
+    .stats{ gap:24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- =====================================================================
+     SECTION: TOP NAV  — edit the name/initials or links here
+     ===================================================================== -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand">Sulabh<span>.</span>Sharma</div>
+    <nav class="toplinks">
+      <a href="#code">code</a>
+      <a href="#scan">scan</a>
+      <a href="#build">build</a>
+      <a href="#deploy">deploy</a>
+      <a href="#monitor">monitor</a>
+    </nav>
+  </div>
+</div>
+
+<!-- =====================================================================
+     SECTION: HERO  — main headline, summary, contact buttons
+     ===================================================================== -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">DevSecOps Engineer · Azure · Kubernetes · CI/CD</div>
+    <h1>I build cloud pipelines that <span class="accent">catch their own mistakes</span> before production does.</h1>
+    <p class="lead">
+      4+ years automating secure, scalable infrastructure on Microsoft Azure — from Terraform
+      modules and AKS clusters to the security scanners standing guard at every stage of the pipeline.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:sulabhsharma.devops@gmail.com">Email me →</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/sulabh-sharma" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn btn-ghost" href="tel:+918077275629">+91 80772 75629</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num">85%</div><div class="label">fewer post-deploy security patches</div></div>
+      <div class="stat"><div class="num">40%</div><div class="label">faster deployment cycles</div></div>
+      <div class="stat"><div class="num">15+</div><div class="label">secure CI/CD pipelines shipped</div></div>
+      <div class="stat"><div class="num">50+</div><div class="label">repos covered by secret scanning</div></div>
+    </div>
+
+    <!-- Pipeline stepper — also functions as the page's navigation -->
+    <div class="pipeline">
+      <div class="track">
+        <div class="runner"></div>
+        <div class="stage" data-target="code"><a href="#code"><span class="tag">CODE</span></a></div>
+        <div class="stage" data-target="scan"><a href="#scan"><span class="tag">SCAN</span></a></div>
+        <div class="stage" data-target="build"><a href="#build"><span class="tag">BUILD</span></a></div>
+        <div class="stage" data-target="deploy"><a href="#deploy"><span class="tag">DEPLOY</span></a></div>
+        <div class="stage" data-target="monitor"><a href="#monitor"><span class="tag">MONITOR</span></a></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- =====================================================================
+     SECTION: CODE (About / Summary)
+     ===================================================================== -->
+<section id="code">
+  <div class="wrap">
+    <div class="section-head"><span class="idx">01</span><h2>// code — about</h2></div>
+    <p style="max-width:680px; color:var(--text-muted); font-size:1.02rem;">
+      I'm a DevSecOps Engineer with over four years of hands-on experience building secure, automated
+      cloud solutions on Microsoft Azure. My day-to-day spans Infrastructure as Code with Terraform,
+      container orchestration with Docker and Kubernetes (AKS), and CI/CD pipelines in Azure DevOps and
+      GitHub Actions. I embed security scanners — Tfsec, TFLint, TruffleHog, Super Linter, and Terratest —
+      directly into the development lifecycle rather than bolting them on afterward, which has cut
+      post-deployment security patches by 85% on the teams I've worked with. I've also led cloud
+      transformation initiatives that improved deployment efficiency by 40% across enterprise environments.
+    </p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECTION: SCAN (Skills)
+     ===================================================================== -->
+<section id="scan">
+  <div class="wrap">
+    <div class="section-head"><span class="idx">02</span><h2>// scan — skills.yaml</h2></div>
+    <div class="scan-banner">✓ all checks passed — 8/8 categories</div>
+
+    <div class="scan-grid">
+      <div class="scan-card">
+        <div class="check"><span class="dot">✓</span><h3>Cloud Platforms</h3></div>
+        <div class="pill-row">
+          <span class="pill">Microsoft Azure</span><span class="pill">App Services</span>
+          <span class="pill">Virtual Machines</span><span class="pill">Networking</span><span class="pill">AKS</span>
+        </div>
+      </div>
+      <div class="scan-card">
+        <div class="check"><span class="dot">✓</span><h3>Container Orchestration</h3></div>
+        <div class="pill-row">
+          <span class="pill">Docker</span><span class="pill">Azure Kubernetes Service</span>
+          <span class="pill">Helm</span><span class="pill">ArgoCD (GitOps)</span>
+        </div>
+      </div>
+      <div class="scan-card">
+        <div class="check"><span class="dot">✓</span><h3>Infrastructure as Code</h3></div>
+        <div class="pill-row"><span class="pill">Terraform</span></div>
+      </div>
+      <div class="scan-card">
+        <div class="check"><span class="dot">✓</span><h3>CI/CD & Pipelines</h3></div>
+        <div class="pill-row">
+          <span class="pill">Azure DevOps</span><span class="pill">GitHub Actions</span><span class="pill">Jenkins</span>
+        </div>
+      </div>
+      <div class="scan-card">
+        <div class="check"><span class="dot">✓</span><h3>DevSecOps & Security Tools</h3></div>
+        <div class="pill-row">
+          <span class="pill">Tfsec</span><span class="pill">TruffleHog</span><span class="pill">TFLint</span>
+          <span class="pill">Super Linter</span><span class="pill">Terratest</span><span class="pill">OpenCost</span>
+        </div>
+      </div>
+      <div class="scan-card">
+        <div class="check"><span class="dot">✓</span><h3>Monitoring & Observability</h3></div>
+        <div class="pill-row"><span class="pill">Prometheus</span><span class="pill">Grafana</span></div>
+      </div>
+      <div class="scan-card">
+        <div class="check"><span class="dot">✓</span><h3>Source Control</h3></div>
+        <div class="pill-row"><span class="pill">Git</span><span class="pill">GitHub</span><span class="pill">Azure Repos</span></div>
+      </div>
+      <div class="scan-card">
+        <div class="check"><span class="dot">✓</span><h3>Scripting & Languages</h3></div>
+        <div class="pill-row">
+          <span class="pill">PowerShell</span><span class="pill">Bash</span><span class="pill">Python</span><span class="pill">Java</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECTION: BUILD (Experience)
+     ===================================================================== -->
+<section id="build">
+  <div class="wrap">
+    <div class="section-head"><span class="idx">03</span><h2>// build — experience</h2></div>
+
+    <div class="job">
+      <div class="job-head">
+        <h3>DevSecOps Engineer — Tata Consultancy Services</h3>
+        <div class="meta">May 2023 — Present</div>
+      </div>
+      <ul>
+        <li>Designed and established <strong>15+ secure CI/CD pipelines</strong> using Azure DevOps and GitHub Actions for enterprise-grade applications, accelerating release cycles by <strong>40%</strong>.</li>
+        <li>Containerized <strong>10+ legacy and microservice applications</strong> with Docker, deploying to Azure Kubernetes Service for consistent environments and fewer deployment errors.</li>
+        <li>Implemented GitOps-based continuous delivery using <strong>ArgoCD</strong> for AKS workloads, enabling automated, auditable, rollback-ready deployments across environments.</li>
+        <li>Embedded <strong>Tfsec, TFLint, TruffleHog, and Super Linter</strong> into CI/CD workflows, reducing post-deployment security patches by <strong>85%</strong>.</li>
+        <li>Automated Terraform validation and testing with TFLint and Terratest, eliminating <strong>10+ hours of manual code review per week</strong>.</li>
+        <li>Used TruffleHog for secret scanning, preventing credential leaks across <strong>50+ enterprise repositories</strong>.</li>
+        <li>Applied Tfsec policy and compliance checks, keeping infrastructure aligned with <strong>99% of internal security benchmarks</strong>.</li>
+        <li>Used OpenCost to monitor and optimize containerized workloads on AKS, cutting monthly cloud spend by <strong>15%</strong>.</li>
+        <li>Orchestrated deployment and validation through Azure DevOps pipelines, cutting manual intervention by <strong>80%</strong> and deployment risk by <strong>30%</strong>.</li>
+        <li>Partnered with a cross-functional team of <strong>20+ development and security engineers</strong> to embed shift-left and container security practices.</li>
+        <li>Owned the AKS migration end-to-end, mentoring <strong>3 junior engineers</strong> on Terraform, Docker, and container security.</li>
+        <li>Integrated GenAI capabilities into DevOps workflows, boosting automation script generation speed by <strong>25%</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <h3>DevOps Engineer — Platform Engineering & Application Support<br>Tata Consultancy Services</h3>
+        <div class="meta">Feb 2022 — May 2023</div>
+      </div>
+      <ul>
+        <li>Built and maintained <strong>10+ CI/CD pipelines</strong> using Jenkins, GitHub, and Maven, improving deployment speed by <strong>30%</strong> and reducing failure rates by <strong>25%</strong>.</li>
+        <li>Standardized deployment across <strong>4 environments</strong> (Dev, QA, Staging, Prod) with reusable Terraform scripts, cutting infrastructure drift by <strong>90%</strong>.</li>
+        <li>Reinforced JBoss clusters supporting four mission-critical services, guaranteeing <strong>99.9% uptime</strong> while reducing average response latency by <strong>35%</strong>.</li>
+        <li>Configured monitoring and alerting with Prometheus and Grafana, reducing incident response time by <strong>35%</strong>.</li>
+        <li>Built REST APIs in Spring Boot, improving system scalability by <strong>40%</strong> and reducing response latency by <strong>25%</strong>.</li>
+        <li>Automated testing with JUnit, raising test coverage to <strong>85%</strong>, and maintained version control with Git/GitHub.</li>
+        <li>Served as primary point of contact for release coordination across Dev, QA, Staging, and Prod.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECTION: DEPLOY (Projects)
+     ===================================================================== -->
+<section id="deploy">
+  <div class="wrap">
+    <div class="section-head"><span class="idx">04</span><h2>// deploy — projects</h2></div>
+
+    <div class="project-card">
+      <h3>Azure Cloud Infrastructure Automation</h3>
+      <div class="stackline">Terraform · Docker · AKS · ArgoCD · Prometheus · Grafana</div>
+      <ul>
+        <li>Architected a highly available <strong>3-tier architecture</strong> on Azure with Terraform, supporting <strong>1,000+ daily active users</strong> across App Services and VMs.</li>
+        <li>Orchestrated container deployment on AKS, standardizing <strong>150 microservice releases</strong> and achieving a <strong>25% performance uplift</strong> through refined node configuration.</li>
+        <li>Built end-to-end Azure DevOps pipelines covering build, test, security scanning, and AKS deployment, with Prometheus and Grafana for lifecycle monitoring — saving <strong>15 hours of manual provisioning per environment</strong>.</li>
+        <li>Drove a <strong>20% reduction</strong> in overall infrastructure resource consumption across key services.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECTION: MONITOR (Contact, Certifications, Education)
+     ===================================================================== -->
+<section id="monitor">
+  <div class="wrap">
+    <div class="section-head"><span class="idx">05</span><h2>// monitor — dashboard</h2></div>
+
+    <div class="dash-grid">
+      <div class="panel">
+        <h3>Contact</h3>
+        <div class="contact-list">
+          <a href="mailto:sulabhsharma.devops@gmail.com"><span class="k">email</span> sulabhsharma.devops@gmail.com</a>
+          <a href="tel:+918077275629"><span class="k">phone</span> +91 80772 75629</a>
+          <a href="https://linkedin.com/in/sulabh-sharma" target="_blank" rel="noopener"><span class="k">linked</span> linkedin.com/in/sulabh-sharma</a>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Certifications</h3>
+        <div class="badge-row">
+          <div class="badge">GCP</div>
+          <div class="badge-text">
+            <div class="title">Google Associate Cloud Engineer</div>
+            <div class="sub">Valid until Jun 2026</div>
+          </div>
+        </div>
+        <h3 style="margin-top:24px;">Education</h3>
+        <div class="edu-item">
+          <div class="deg">Master of Computer Applications (MCA)</div>
+          <div class="school">MJP Rohilkhand University, Bareilly, India</div>
+          <div class="when">Aug 2017 — Aug 2020</div>
+        </div>
+        <div class="edu-item">
+          <div class="deg">Bachelor of Science</div>
+          <div class="school">Khandelwal College of Management Science and Technology, Bareilly, India</div>
+          <div class="when">Aug 2014 — Aug 2017</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Sulabh Sharma</div>
+    <div>last deploy: this page, right now</div>
+  </div>
+</footer>
+
+<script>
+  // Scroll-spy: highlights the matching pipeline stage + top nav link
+  const sections = document.querySelectorAll('section, header');
+  const stages = document.querySelectorAll('.stage');
+  const topLinks = document.querySelectorAll('.toplinks a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        const id = entry.target.id;
+        stages.forEach(s => s.classList.toggle('active', s.dataset.target === id));
+        stages.forEach(s => {
+          const tag = s.querySelector('.tag');
+          if (tag) tag.classList.toggle('active', s.dataset.target === id);
+        });
+        topLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px' });
+
+  sections.forEach(s => { if (s.id) observer.observe(s); });
+</script>
+
+</body>
+</html>
