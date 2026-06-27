@@ -1,68 +1,59 @@
-# SulabhSharma.github.io
+# Hi, I'm Sulabh Sharma 👋
 
-# Your Portfolio — Edit & Publish Guide
+**DevSecOps Engineer** building secure, automated cloud infrastructure on Azure — Terraform, Kubernetes, and CI/CD pipelines that catch problems before they reach production.
 
-This is a single file, `index.html`. Everything — text, colors, layout — lives
-inside it, so there's nothing to install and no build process.
+📍 India · 💼 DevSecOps Engineer @ Tata Consultancy Services · 📧 sulabhsharma.devops@gmail.com
 
-## Editing the content
+---
 
-1. Open `index.html` in any text editor (VS Code, Notepad, TextEdit — anything works).
-2. Scroll to find the part you want to change. The file is broken into clearly
-   labeled blocks, e.g.:
-   ```
-   <!-- SECTION: HERO  — main headline, summary, contact buttons -->
-   ```
-3. Change the text between the tags. For example, to update your headline, find
-   this line and edit the words inside it:
-   ```html
-   <h1>I build cloud pipelines that <span class="accent">catch their own mistakes</span> before production does.</h1>
-   ```
-4. Save the file. Open it in a browser (just double-click it) to preview your change.
+### 🔭 What I do
 
-You don't need to touch anything in `< >` brackets — just the words around them.
+- Design and ship **secure CI/CD pipelines** using Azure DevOps, GitHub Actions, and Jenkins
+- Manage **Kubernetes (AKS)** clusters and node pools in production, with Helm for deployment manifests
+- Drive **Infrastructure-as-Code** adoption with Terraform, validated by Tfsec, TFLint, and Terratest
+- Embed security scanning (TruffleHog, Tfsec) directly into the development lifecycle — shift-left, not bolt-on
+- Set up observability with Prometheus and Grafana, and optimize cloud cost with OpenCost
+- Mentor engineers on Terraform, Docker, and container security best practices
 
-## Changing colors or fonts
+### 🧰 Tech Stack
 
-Near the very top of the file, inside `<style>`, there's a block that starts with:
-```css
-:root{
-  --bg: #0E141B;
-  --blue: #5B8DEF;
-  ...
-}
-```
-Change any hex code there and it updates everywhere that color is used on the site.
+![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)
+![ArgoCD](https://img.shields.io/badge/ArgoCD-EF7B4D?style=for-the-badge&logo=argo&logoColor=white)
+![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white)
+![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 
-## Adding a new job, skill, or project
+### 🛡️ DevSecOps Toolkit
 
-Copy an existing block (e.g. one `<div class="job">...</div>` for a new role, or
-one `<span class="pill">...</span>` for a new skill tag) and paste a duplicate
-right below it, then edit the text inside your copy.
+`Tfsec` · `TFLint` · `TruffleHog` · `Super Linter` · `Terratest` · `OpenCost` · `Helm`
 
-## Publishing it online (free options)
+### 📜 Certifications
 
-**Easiest — Netlify Drop**
-1. Go to https://app.netlify.com/drop
-2. Drag your `index.html` file onto the page.
-3. You instantly get a live URL you can share. Re-drag the file any time you
-   make an edit, to update the live site.
+- **Microsoft Certified: DevOps Engineer Expert** — Designing and Implementing Microsoft DevOps Solutions (AZ-400)
+- **Google Associate Cloud Engineer** — valid through June 2026
 
-**GitHub Pages (good if you already use GitHub)**
-1. Create a new repository, e.g. `sulabh-portfolio`.
-2. Upload `index.html` (rename it to stay `index.html`).
-3. In the repo, go to Settings → Pages → set source to the main branch.
-4. Your site will be live at `https://<your-username>.github.io/sulabh-portfolio/`.
+### 🎓 Education
 
-**Vercel**
-1. Go to https://vercel.com, sign up, and choose "Add New Project".
-2. Drag and drop the folder containing `index.html`.
-3. Deploy — you'll get a live URL.
+- Master of Computer Applications (MCA) — MJP Rohilkhand University, Bareilly
+- Bachelor of Science — Khandelwal College of Management Science and Technology, Bareilly
 
-Any of these let you re-upload the file whenever you make changes, and the
-live site updates within seconds.
+### 🌱 Currently
 
-## Coming back to Claude for changes
+Exploring GitOps patterns at scale and integrating GenAI into everyday DevOps workflows to speed up automation.
 
-If you'd rather not hand-edit the HTML, you can paste the updated resume text
-or describe the change you want, and ask for a fresh version of `index.html`.
+### 📫 Connect with me
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/sulabh-sharma)
+[![Gmail](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:sulabhsharma.devops@gmail.com)
+
+---
+
+<sub>💡 Tip: if you want this to show up on your GitHub profile page, create a public repo with the *same name as your GitHub username*, and put this file in it as `README.md`.</sub>
